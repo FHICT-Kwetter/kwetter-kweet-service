@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kwetter-kweet-service
+spec:
+  selector:
+    app: kwetter-kweet-service
+  ports:
+    - protocol: TCP
+      name: http
+      targetPort: 80
+      port: 80

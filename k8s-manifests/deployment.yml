@@ -1,0 +1,44 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kwetter-kweet-service
+  labels:
+    k8s-app: kwetter-kweet-service
+spec:
+  selector:
+    matchLabels:
+      app: kwetter-kweet-service
+  template:
+    metadata:
+      labels:
+        app: kwetter-kweet-service
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+        - name: kwetter-kweet-service
+          image: eu.gcr.io/kwetter-308618/kwetter-kweet-service:latest
+          imagePullPolicy: Always
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: GOOGLE_CLOUD_SQL
+              valueFrom:
+                secretKeyRef:
+                  name: google-cloud-sql-connection-string
+                  key: connection_string
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
