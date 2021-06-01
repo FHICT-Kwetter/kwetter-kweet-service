@@ -22,6 +22,13 @@
             this.mediator = mediator;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllKweets()
+        {
+            var result = await this.mediator.Send(new ListKweets());
+            return this.Ok(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateKweet([FromBody] CreateKweetRequest request)
         {

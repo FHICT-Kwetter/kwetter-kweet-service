@@ -10,7 +10,7 @@
     {
         Task<Kweet> Add(Kweet kweet);
 
-        Task<Kweet> FindById(Guid kweetId);
+        Task<IEnumerable<Kweet>> FindAll();
     }
 
     public class KweetRepository : IKweetRepository
@@ -23,9 +23,9 @@
             return kweet;
         }
 
-        public async Task<Kweet> FindById(Guid kweetId)
+        public async Task<IEnumerable<Kweet>> FindAll()
         {
-            return kweets.FirstOrDefault(x => x.Id == kweetId);
+            return kweets;
         }
     }
 }
