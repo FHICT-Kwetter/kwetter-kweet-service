@@ -1,17 +1,12 @@
-﻿// <copyright file="HashtagParser.cs" company="Kwetter">
-//     Copyright Kwetter. All rights reserved.
-// </copyright>
-// <author>Dirk Heijnen</author>
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using KweetService.Domain.Text.Entities;
+using KweetService.Domain.Text.Utils;
 
 namespace KweetService.Domain.Text.Parsers.EntityParsers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text.RegularExpressions;
-    using KweetService.Domain.Text.Entities;
-    using KweetService.Domain.Text.Utils;
-
     /// <summary>
     /// A part of a kweet text where it contains a topic preceded by the "#" symbol.
     ///

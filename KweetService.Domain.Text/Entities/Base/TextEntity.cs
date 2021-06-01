@@ -1,8 +1,4 @@
-﻿// <copyright file="TextEntity.cs" company="Kwetter">
-//     Copyright Kwetter. All rights reserved.
-// </copyright>
-// <author>Dirk Heijnen</author>
-
+﻿
 namespace KweetService.Domain.Text.Entities.Base
 {
     /// <summary>

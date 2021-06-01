@@ -1,12 +1,7 @@
-﻿// <copyright file="Mention.cs" company="Kwetter">
-//     Copyright Kwetter. All rights reserved.
-// </copyright>
-// <author>Dirk Heijnen</author>
+﻿using KweetService.Domain.Text.Entities.Base;
 
 namespace KweetService.Domain.Text.Entities
 {
-    using KweetService.Domain.Text.Entities.Base;
-
     /// <summary>
     /// A part of a kweet text where it contains a username preceded by the "@" symbol.
     /// For example : "Hello @KwetterUser"
