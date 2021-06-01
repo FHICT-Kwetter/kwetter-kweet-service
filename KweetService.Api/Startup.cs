@@ -3,6 +3,7 @@ using KweetService.Data.Extensions;
 using KweetService.Service.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,6 +27,9 @@ namespace KweetService.Api
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UsePathBase(new PathString("/api/kweets"));
+            app.UseHealthChecks("/api/kweets/health");
+            app.UseHealthChecks("/health");
             app.UseRouting();
             app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
