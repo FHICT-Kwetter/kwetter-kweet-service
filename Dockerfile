@@ -8,7 +8,7 @@ WORKDIR /src
 COPY ["KweetService.Api/KweetService.Api.csproj", "KweetService.Api/"]
 COPY ["KweetService.Data/KweetService.Data.csproj", "KweetService.Data/"]
 COPY ["KweetService.Domain/KweetService.Domain.csproj", "KweetService.Domain/"]
-COPY ["KweetService.Domain/KweetService.Domain.Text.csproj", "KweetService.Domain.Text/"]
+COPY ["KweetService.Domain.Text/KweetService.Domain.Text.csproj", "KweetService.Domain.Text/"]
 COPY ["KweetService.Service/KweetService.Service.csproj", "KweetService.Service/"]
 
 RUN dotnet restore "KweetService.Api/KweetService.Api.csproj"
