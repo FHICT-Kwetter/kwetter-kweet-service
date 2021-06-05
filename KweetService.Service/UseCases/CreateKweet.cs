@@ -30,6 +30,7 @@
             };
 
             await this.unitOfWork.Kweets.Add(kweet);
+            await this.unitOfWork.SaveChangesAsync(cancellationToken);
 
             return kweet;
         }

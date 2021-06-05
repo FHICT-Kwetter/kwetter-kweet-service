@@ -29,10 +29,17 @@
             return this.Ok(result);
         }
 
+        [HttpGet("authors/{id}")]
+        public async Task<IActionResult> GetKweetsByAuthorId([FromRoute] string id)
+        {
+            var results = await this.mediator.Send(new GetKweetsByUserId(Guid.Parse(id)));
+            return this.Ok(results);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateKweet([FromBody] CreateKweetRequest request)
         {
-            var authorId = Guid.Parse(this.User.FindFirst("sub")?.Value!);
+            var authorId = Guid.Parse(this.User.FindFirst("sub")?.Value);
             var result = await this.mediator.Send(new CreateKweet(request.Text, authorId));
             return this.Ok(result);
         }
